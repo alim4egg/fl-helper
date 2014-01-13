@@ -1,0 +1,16 @@
+{
+  "name": "fl-helper",
+  "version": "0.0.1",
+  "description": "FL.RU Helper",
+  "author": "AveVlad <dev@vld.me>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AveVlad/fl-helper.git"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "load-grunt-tasks": ">=0.1.0",
+    "grunt-contrib-watch": ">=0.5.3",
+    "grunt-contrib-coffee": ">=0.7.0"
+  }
+}
