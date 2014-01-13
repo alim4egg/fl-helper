@@ -4,14 +4,14 @@
   "manifest_version": 2,
   "description": "FL.RU Helper",
   "icons": {
-    "16": "icons/icon16.png",
-    "48": "icons/icon48.png",
-    "128": "icons/icon128.png"
+    "16": "assets/icons/icon16.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
   },
   "content_scripts": [
     {
       "matches": ["*://*.fl.ru/*"],
-      "js": ["/libs/jquery/jquery.min.js", "assets/js/main.js"]
+      "js": ["assets/libs/jquery/jquery.min.js", "assets/js/main.js"]
     }
   ],
   "permissions": [
@@ -28,8 +28,8 @@
   "options_page": "src/options/options.html",
   "browser_action": {
     "default_icon": {
-      "19": "icons/icon19.png",
-      "38": "icons/icon38.png"
+      "19": "assets/icons/icon19.png",
+      "38": "assets/icons/icon38.png"
     }
   }
 }
