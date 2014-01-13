@@ -14,3 +14,29 @@ openOptions = ->
 
 chrome.browserAction.onClicked.addListener (tab) ->
   openOptions()
+
+notify = (text) ->
+  havePermission = window.webkitNotifications.checkPermission()
+  if havePermission is 0
+    notification = window.webkitNotifications.createNotification("/assets/icons/icon48.png", "Freelance helper", text)
+    setTimeout (->
+      notification.close()
+    ), 4000
+    notification.onclick = ->
+      window.open "http://fl.ru"
+      notification.close()
+    notification.show()
+  else
+    window.webkitNotifications.requestPermission()
+
+request = $.ajax(
+  url: "https://www.fl.ru/"
+)
+request.done (msg) ->
+
+
+#setInterval (->
+#  notify('Привет, как дела?')
+#), 5000
+notify('У вас 2 непрочитанных сообщения')
+notify('В ваших проектах 9 новых ответов')
