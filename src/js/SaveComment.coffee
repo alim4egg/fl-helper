@@ -6,13 +6,14 @@ checkUrl = (url) ->
 
 saveComment = ->
   text = $("#ps_text")
-  flCommentText = localStorage.flCommentText
-  if flCommentText.length > 0
-    $("#ps_text").val(flCommentText)
+  flCommentText = localStorage.getItem('flCommentText')
+  if flCommentText
+    if flCommentText.length > 0
+      $("#ps_text").val(flCommentText)
   text.keyup () ->
-    localStorage.flCommentText = $(this).val()
+    localStorage.setItem('flCommentText', $(this).val())
   $('#ps_add').click ->
-    localStorage.flCommentText = ''
+    localStorage.setItem('flCommentText', '')
 
 alwaysHideComment = ->
   checkbox = $('#ps_for_customer_only')
