@@ -17,6 +17,7 @@
   "permissions": [
     "tabs",
     "*://*.fl.ru/*",
+    "storage",
     "unlimitedStorage",
     "cookies",
     "notifications"

@@ -11,8 +11,11 @@ module.exports = (grunt) ->
     coffee:
       compile:
         files:
+          "assets/js/main.js": [
+            "src/js/Main.coffee"
+            "src/js/SaveComment.coffee"
+          ]
           "assets/js/background.js": ["src/bg/background.coffee"]
           "assets/js/options.js": ["src/options/options.coffee"]
-          "assets/js/main.js": ["src/js/main.coffee"]
 
   grunt.registerTask "default", ["watch"]
