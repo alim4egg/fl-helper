@@ -8,9 +8,9 @@
     "url": "https://github.com/AveVlad/fl-helper.git"
   },
   "devDependencies": {
-    "grunt": "~0.4.2",
-    "load-grunt-tasks": ">=0.1.0",
-    "grunt-contrib-watch": ">=0.5.3",
-    "grunt-contrib-coffee": ">=0.7.0"
+    "gulp": "~3.3.2",
+    "gulp-util": "~2.2.9",
+    "gulp-coffee": "~1.2.5",
+    "coffee-script": "~1.6.3"
   }
 }

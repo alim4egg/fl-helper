@@ -1,6 +1,3 @@
-(function() {
-  var test;
+var test;
 
-  test = 0;
-
-}).call(this);
+test = 20;

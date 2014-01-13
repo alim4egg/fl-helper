@@ -8,4 +8,5 @@ class Main
   constructor: () ->
     console.log 'Main'
 
-main = new Main()
+$ ->
+  main = new Main()
