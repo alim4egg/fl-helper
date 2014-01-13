@@ -1,5 +1,5 @@
 *.idea
-assets/js/
 *.sass-cache
 npm-debug.log
 node_modules
+assets/js/
