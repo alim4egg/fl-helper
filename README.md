@@ -27,7 +27,7 @@ fl-helper
 
  4. Запустите **npm** для установки зависимостей.
 
-        cd psd2html
+        cd fl-helper
         npm install
 
  5. Запустите Gulp.
