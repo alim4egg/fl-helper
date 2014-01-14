@@ -11,6 +11,7 @@
     "gulp": "~3.3.2",
     "gulp-util": "~2.2.9",
     "gulp-coffee": "~1.2.5",
-    "coffee-script": "~1.6.3"
+    "coffee-script": "~1.6.3",
+    "gulp-stylus": "0.0.9"
   }
 }
