@@ -1,3 +1,21 @@
+offers = ->
+  add = $('.offers-add')
+  modal = $('.modal')
+  modalName = $('#modal_name')
+  modalText = $('#modal_text')
+  modalOffersAdd = $('.modal-offers-add')
+  modalForm = $('.modal-form')
+  add.click ->
+    modal.find('.modal-title').text('Добавить предложение')
+    modalOffersAdd.data('type', 'add')
+    modalName.val('')
+    modalText.val('')
+  modalForm.submit ->
+    type = modalOffersAdd.data('type')
+    console.log type
+    modal.modal('hide')
+
+
 accordian = ->
   type = false
   a = $('.tabs-menu a')
@@ -27,3 +45,5 @@ accordian = ->
 
 $ ->
   accordian()
+  offers()
+  console.log

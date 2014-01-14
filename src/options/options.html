@@ -17,8 +17,10 @@
 <div class="tabs-content">
   <div id="tab1" class="item">
     <div class="name">Готовые предложения</div>
-    <button type="button" class="btn btn-success btn-xs" style="margin-bottom: 20px;">добавить</button>
-    <table class="table table-hover table-bordered">
+    <button type="button" class="btn btn-success btn-xs offers-add" data-toggle="modal" data-target="#modal"
+            style="margin-bottom: 20px;">добавить
+    </button>
+    <table class="table table-hover table-bordered offers-table">
       <tr>
         <th>#</th>
         <th>Название</th>
@@ -28,8 +30,8 @@
         <td>1</td>
         <td>Стандартное предложение</td>
         <td>
-          <button type="button" class="btn btn-primary btn-xs">изменить</button>
-          <button type="button" class="btn btn-danger btn-xs">удалить</button>
+          <button type="button" class="btn btn-primary btn-xs offers-edit">изменить</button>
+          <button type="button" class="btn btn-danger btn-xs offers-del">удалить</button>
         </td>
       </tr>
       <tr>
@@ -48,8 +50,40 @@
     dsa
   </div>
 </div>
-<script src="../../assets/libs/jquery/jquery.min.js"></script>
-<script src="../../assets/libs/easing/jquery.easing.min.js"></script>
+<form class="modal-form" role="form">
+  <!-- Modal -->
+  <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myMoLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myMoLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="modal_name">Название предложения</label>
+            <input type="text" class="form-control" id="modal_name" required="required">
+          </div>
+          <div class="form-group">
+            <label for="modal_text">Текст предложения</label>
+            <textarea id="modal_text" class="form-control" cols="30" rows="10" required></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+          <button type="submit" class="btn btn-primary modal-offers-add" data-type="add">Сохранить</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+</form>
+
+<script src="../../assets/bower_components/jquery/jquery.min.js"></script>
+<script src="../../assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../../assets/bower_components/jquery-easing/jquery.easing.min.js"></script>
 <script src="../../assets/js/options.js"></script>
 </body>
 </html>

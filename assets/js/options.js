@@ -1,4 +1,26 @@
-var accordian;
+var accordian, offers;
+
+offers = function() {
+  var add, modal, modalForm, modalName, modalOffersAdd, modalText;
+  add = $('.offers-add');
+  modal = $('.modal');
+  modalName = $('#modal_name');
+  modalText = $('#modal_text');
+  modalOffersAdd = $('.modal-offers-add');
+  modalForm = $('.modal-form');
+  add.click(function() {
+    modal.find('.modal-title').text('Добавить предложение');
+    modalOffersAdd.data('type', 'add');
+    modalName.val('');
+    return modalText.val('');
+  });
+  return modalForm.submit(function() {
+    var type;
+    type = modalOffersAdd.data('type');
+    console.log(type);
+    return modal.modal('hide');
+  });
+};
 
 accordian = function() {
   var a, li, tab, tabItem, type;
@@ -46,5 +68,7 @@ accordian = function() {
 };
 
 $(function() {
-  return accordian();
+  accordian();
+  offers();
+  return console.log;
 });
