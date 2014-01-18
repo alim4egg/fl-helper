@@ -1,6 +1,6 @@
 todomvc.factory("todoStorage", function() {
   var STORAGE_ID;
-  STORAGE_ID = "todos-angularjs-perf";
+  STORAGE_ID = "fl-offers";
   return {
     get: function() {
       return JSON.parse(localStorage.getItem(STORAGE_ID) || "[]");

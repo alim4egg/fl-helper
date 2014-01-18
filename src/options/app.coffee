@@ -1,7 +1,23 @@
-vrem = ''
+chekLocalStorage = ->
+  typeLocalStorage = typeof localStorage.getItem('fl-offers')
+  if typeLocalStorage isnt 'string'
+    offersArray = [
+      title: 'Ответ по программированию',
+      text: 'Привет! Я пример ответа!',
+    ,
+      title: 'Ответ по дизайну',
+      text: 'Привет! Я пример ответа!',
+    ,
+      title: 'Ответ по верстке',
+      text: 'Привет! Я пример ответа!',
+    ]
+    localStorage.setItem('fl-offers', JSON.stringify(offersArray))
+
 
 todomvc = angular.module("todomvc", [])
 todomvc.controller "TodoCtrl", TodoCtrl = ($scope, $location, todoStorage) ->
+  chekLocalStorage()
+  temp = ''
   todos = $scope.todos = todoStorage.get()
   $scope.newOffersTitle = ""
   $scope.newOffersText = ""
@@ -10,14 +26,13 @@ todomvc.controller "TodoCtrl", TodoCtrl = ($scope, $location, todoStorage) ->
     console.log type
     newOffersTitle = $scope.newOffersTitle
     newOffersText = $scope.newOffersText
-
     if type == 'add'
       todos.push
         title: newOffersTitle.trim()
         text: newOffersText.trim()
     if type == 'edit'
-      vrem.title = newOffersTitle.trim()
-      vrem.text = newOffersText.trim()
+      temp.title = newOffersTitle.trim()
+      temp.text = newOffersText.trim()
 
     todoStorage.put todos
     newOffersTitle = ""
@@ -26,8 +41,7 @@ todomvc.controller "TodoCtrl", TodoCtrl = ($scope, $location, todoStorage) ->
   $scope.editTodo = (todo) ->
     $scope.newOffersTitle = todo.title
     $scope.newOffersText = todo.text
-    vrem = todo
-
+    temp = todo
 
   $scope.removeTodo = (todo) ->
     todos.splice todos.indexOf(todo), 1

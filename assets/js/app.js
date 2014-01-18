@@ -1,11 +1,31 @@
-var TodoCtrl, todomvc, vrem;
+var TodoCtrl, chekLocalStorage, todomvc;
 
-vrem = '';
+chekLocalStorage = function() {
+  var offersArray, typeLocalStorage;
+  typeLocalStorage = typeof localStorage.getItem('fl-offers');
+  if (typeLocalStorage !== 'string') {
+    offersArray = [
+      {
+        title: 'Ответ по программированию',
+        text: 'Привет! Я пример ответа!'
+      }, {
+        title: 'Ответ по дизайну',
+        text: 'Привет! Я пример ответа!'
+      }, {
+        title: 'Ответ по верстке',
+        text: 'Привет! Я пример ответа!'
+      }
+    ];
+    return localStorage.setItem('fl-offers', JSON.stringify(offersArray));
+  }
+};
 
 todomvc = angular.module("todomvc", []);
 
 todomvc.controller("TodoCtrl", TodoCtrl = function($scope, $location, todoStorage) {
-  var todos;
+  var temp, todos;
+  chekLocalStorage();
+  temp = '';
   todos = $scope.todos = todoStorage.get();
   $scope.newOffersTitle = "";
   $scope.newOffersText = "";
@@ -22,8 +42,8 @@ todomvc.controller("TodoCtrl", TodoCtrl = function($scope, $location, todoStorag
       });
     }
     if (type === 'edit') {
-      vrem.title = newOffersTitle.trim();
-      vrem.text = newOffersText.trim();
+      temp.title = newOffersTitle.trim();
+      temp.text = newOffersText.trim();
     }
     todoStorage.put(todos);
     newOffersTitle = "";
@@ -32,7 +52,7 @@ todomvc.controller("TodoCtrl", TodoCtrl = function($scope, $location, todoStorag
   $scope.editTodo = function(todo) {
     $scope.newOffersTitle = todo.title;
     $scope.newOffersText = todo.text;
-    return vrem = todo;
+    return temp = todo;
   };
   return $scope.removeTodo = function(todo) {
     todos.splice(todos.indexOf(todo), 1);
