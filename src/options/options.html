@@ -30,10 +30,13 @@
         <td>{{$index+1}}</td>
         <td>{{todo.title}}</td>
         <td>
-          <button type="button" class="btn btn-primary btn-xs offers-edit" data-toggle="modal" data-target="#modal">
+          <button type="button" ng-click="editTodo(todo)" class="btn btn-primary btn-xs offers-edit" data-toggle="modal"
+                  data-target="#modal">
             изменить
           </button>
-          <button type="button" class="btn btn-danger btn-xs offers-del" ng-click="removeTodo(todo)">удалить</button>
+          <button type="button" class="btn btn-danger btn-xs offers-del" ng-click="removeTodo(todo)">
+            удалить
+          </button>
         </td>
       </tr>
     </table>

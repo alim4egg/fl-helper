@@ -4,11 +4,12 @@ offers = ->
   modal = $('.modal')
   modalName = $('#modal_name')
   modalText = $('#modal_text')
-  modalOffersAdd = $('.modal-offers-add')
   modalForm = $('.modal-form')
   add.click ->
     modal.data('type', 'add')
     modal.find('.modal-title').text('Добавить предложение')
+    modalName.val('')
+    modalText.val('')
   edit.click ->
     modal.data('type', 'edit')
     modal.find('.modal-title').text('Редактировать предложение')

@@ -1,17 +1,18 @@
 var accordian, offers;
 
 offers = function() {
-  var add, edit, modal, modalForm, modalName, modalOffersAdd, modalText;
+  var add, edit, modal, modalForm, modalName, modalText;
   add = $('.offers-add');
   edit = $('.offers-edit');
   modal = $('.modal');
   modalName = $('#modal_name');
   modalText = $('#modal_text');
-  modalOffersAdd = $('.modal-offers-add');
   modalForm = $('.modal-form');
   add.click(function() {
     modal.data('type', 'add');
-    return modal.find('.modal-title').text('Добавить предложение');
+    modal.find('.modal-title').text('Добавить предложение');
+    modalName.val('');
+    return modalText.val('');
   });
   edit.click(function() {
     modal.data('type', 'edit');
