@@ -1,11 +1,11 @@
 <!doctype html>
-<html>
+<html ng-app="todomvc">
 <head>
   <title>Настройки FL Helper</title>
-  <link rel="stylesheet" href="../../assets/libs/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../assets/css/options.css">
 </head>
-<body>
+<body ng-controller="TodoCtrl">
 <div class="page-name">FL Helper</div>
 <div class="tabs-menu">
   <ul>
@@ -26,33 +26,30 @@
         <th>Название</th>
         <th>Действия</th>
       </tr>
-      <tr>
-        <td>1</td>
-        <td>Стандартное предложение</td>
+      <tr ng-repeat="todo in todos track by $index">
+        <td>{{$index+1}}</td>
+        <td>{{todo.title}}</td>
         <td>
-          <button type="button" class="btn btn-primary btn-xs offers-edit">изменить</button>
-          <button type="button" class="btn btn-danger btn-xs offers-del">удалить</button>
+          <button type="button" class="btn btn-primary btn-xs offers-edit" data-toggle="modal" data-target="#modal">
+            изменить
+          </button>
+          <button type="button" class="btn btn-danger btn-xs offers-del" ng-click="removeTodo(todo)">удалить</button>
         </td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>Заказчик нищеброд</td>
-        <td>Действия</td>
       </tr>
     </table>
   </div>
   <div id="tab2" class="item">
     <div class="name">Настройки</div>
-    sdas
+
   </div>
   <div id="tab3" class="item">
     <div class="name">Предложить идею</div>
     dsa
   </div>
 </div>
-<form class="modal-form" role="form">
+<form class="modal-form" role="form" ng-submit="addTodo()">
   <!-- Modal -->
-  <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myMoLabel" aria-hidden="true">
+  <div class="modal" id="modal" role="dialog" aria-labelledby="myMoLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -62,11 +59,12 @@
         <div class="modal-body">
           <div class="form-group">
             <label for="modal_name">Название предложения</label>
-            <input type="text" class="form-control" id="modal_name" required="required">
+            <input type="text" class="form-control" id="modal_name" required="required" ng-model="newOffersTitle">
           </div>
           <div class="form-group">
             <label for="modal_text">Текст предложения</label>
-            <textarea id="modal_text" class="form-control" cols="30" rows="10" required></textarea>
+            <textarea id="modal_text" class="form-control" cols="30" rows="10" required
+                      ng-model="newOffersText"></textarea>
           </div>
         </div>
         <div class="modal-footer">
@@ -82,8 +80,11 @@
 </form>
 
 <script src="../../assets/bower_components/jquery/jquery.min.js"></script>
+<script src="../../assets/bower_components/angular/angular.min.js"></script>
 <script src="../../assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="../../assets/bower_components/jquery-easing/jquery.easing.min.js"></script>
 <script src="../../assets/js/options.js"></script>
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/todoStorage.js"></script>
 </body>
 </html>
