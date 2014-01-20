@@ -14,7 +14,11 @@
       "js": [
         "assets/bower_components/jquery/jquery.min.js",
         "assets/js/Main.js",
-        "assets/js/SaveComment.js"
+        "assets/js/SaveComment.js",
+        "assets/js/Offers.js"
+      ],
+      "css": [
+        "assets/css/site.css"
       ]
     }
   ],
