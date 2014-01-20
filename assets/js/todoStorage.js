@@ -1,12 +1,7 @@
-todomvc.factory("todoStorage", function() {
-  var STORAGE_ID;
-  STORAGE_ID = "fl-offers";
-  return {
-    get: function() {
-      return JSON.parse(localStorage.getItem(STORAGE_ID) || "[]");
-    },
-    put: function(todos) {
-      return localStorage.setItem(STORAGE_ID, JSON.stringify(todos));
-    }
-  };
-});
+var storageSet;
+
+storageSet = function(data) {
+  return chrome.storage.local.set({
+    fl_helper_offers: JSON.stringify(data)
+  });
+};

@@ -68,6 +68,4 @@ request.done(function(data) {
   return console.log(notiArray);
 });
 
-notify('У вас 2 непрочитанных сообщения');
-
-notify('В ваших проектах 9 новых ответов');
+$(function() {});

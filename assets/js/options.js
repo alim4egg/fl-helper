@@ -30,9 +30,12 @@ accordian = function() {
   li = $('.tabs-menu li');
   tab = $('.tabs-content');
   tabItem = $('.tabs-content .item');
+  tabItem.css({
+    display: 'none'
+  });
   li.eq(0).addClass('active');
-  tabItem.eq(0).addClass('active');
-  tabItem.eq(0).css({
+  tabItem.eq(0).addClass('active').css({
+    display: 'block',
     opacity: 1
   });
   return a.click(function() {
@@ -50,7 +53,8 @@ accordian = function() {
     $(this).parent().addClass('active');
     active.removeClass('active');
     $('#' + id).css({
-      left: 170
+      left: 170,
+      display: 'block'
     });
     active.animate({
       left: 170,
@@ -59,12 +63,19 @@ accordian = function() {
       return $('#' + id).animate({
         left: 200,
         opacity: 1
-      }, 200, 'linear');
+      }, 200, 'linear', (function() {
+        tabItem.css({
+          display: 'none'
+        });
+        return $('#' + id).css({
+          display: 'block'
+        });
+      }));
     }));
     $('#' + id).addClass('active');
     return setTimeout((function() {
       return type = false;
-    }), 300);
+    }), 400);
   });
 };
 

@@ -1,4 +1,4 @@
-var Main, checkUrl;
+var checkUrl;
 
 checkUrl = function(url) {
   var pathname;
@@ -9,17 +9,3 @@ checkUrl = function(url) {
   }
   return false;
 };
-
-Main = (function() {
-  function Main() {
-    console.log('Main');
-  }
-
-  return Main;
-
-})();
-
-$(function() {
-  var main;
-  return main = new Main();
-});

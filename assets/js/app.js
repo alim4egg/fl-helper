@@ -1,51 +1,40 @@
-var TodoCtrl, chekLocalStorage, todomvc;
+var OffersApp, TodoCtrl;
 
-chekLocalStorage = function() {
-  var offersArray, typeLocalStorage;
-  typeLocalStorage = typeof localStorage.getItem('fl-offers');
-  if (typeLocalStorage !== 'string') {
-    offersArray = [
-      {
-        title: 'Ответ по программированию',
-        text: 'Привет! Я пример ответа!'
-      }, {
-        title: 'Ответ по дизайну',
-        text: 'Привет! Я пример ответа!'
-      }, {
-        title: 'Ответ по верстке',
-        text: 'Привет! Я пример ответа!'
-      }
-    ];
-    return localStorage.setItem('fl-offers', JSON.stringify(offersArray));
-  }
-};
+OffersApp = angular.module("OffersApp", []);
 
-todomvc = angular.module("todomvc", []);
-
-todomvc.controller("TodoCtrl", TodoCtrl = function($scope, $location, todoStorage) {
-  var temp, todos;
-  chekLocalStorage();
+OffersApp.controller("TodoCtrl", TodoCtrl = function($scope) {
+  var storage, temp;
+  storage = chrome.storage.local;
   temp = '';
-  todos = $scope.todos = todoStorage.get();
-  $scope.newOffersTitle = "";
-  $scope.newOffersText = "";
+  $scope.storageSet = function() {
+    return storage.set({
+      "fl_offers": JSON.stringify($scope.todos)
+    });
+  };
+  $scope.newOffersTitle = '';
+  $scope.newOffersText = '';
+  storage.get("fl_offers", function(data) {
+    return $scope.$apply(function() {
+      return $scope.todos = JSON.parse(data.fl_offers);
+    });
+  });
+  console.log('1');
   $scope.addTodo = function() {
     var newOffersText, newOffersTitle, type;
     type = $('.modal').data('type');
-    console.log(type);
     newOffersTitle = $scope.newOffersTitle;
     newOffersText = $scope.newOffersText;
     if (type === 'add') {
-      todos.push({
+      $scope.todos.push({
         title: newOffersTitle.trim(),
         text: newOffersText.trim()
       });
     }
     if (type === 'edit') {
-      temp.title = newOffersTitle.trim();
-      temp.text = newOffersText.trim();
+      temp.title = $scope.newOffersTitle.trim();
+      temp.text = $scope.newOffersTitle.trim();
     }
-    todoStorage.put(todos);
+    $scope.storageSet();
     newOffersTitle = "";
     return newOffersText = "";
   };
@@ -55,7 +44,7 @@ todomvc.controller("TodoCtrl", TodoCtrl = function($scope, $location, todoStorag
     return temp = todo;
   };
   return $scope.removeTodo = function(todo) {
-    todos.splice(todos.indexOf(todo), 1);
-    return todoStorage.put(todos);
+    $scope.todos.splice($scope.todos.indexOf(todo), 1);
+    return $scope.storageSet();
   };
 });

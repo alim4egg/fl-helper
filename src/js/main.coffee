@@ -4,9 +4,9 @@ checkUrl = (url) ->
   return true  if url is pathname
   false
 
-class Main
-  constructor: () ->
-    console.log 'Main'
-
-$ ->
-  main = new Main()
+#class Main
+#  constructor: () ->
+#    console.log 'Main'
+#
+#$ ->
+#  main = new Main()

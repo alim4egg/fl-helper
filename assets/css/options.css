@@ -65,9 +65,6 @@ body {
   top: 0;
   opacity: 0;
 }
-.tabs-content .item.active {
-  z-index: 10;
-}
 .tabs-content .name {
   margin-top: 22px;
   font-size: 18px;

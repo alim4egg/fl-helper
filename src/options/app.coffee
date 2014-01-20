@@ -1,40 +1,42 @@
-chekLocalStorage = ->
-  typeLocalStorage = typeof localStorage.getItem('fl-offers')
-  if typeLocalStorage isnt 'string'
-    offersArray = [
-      title: 'Ответ по программированию',
-      text: 'Привет! Я пример ответа!',
-    ,
-      title: 'Ответ по дизайну',
-      text: 'Привет! Я пример ответа!',
-    ,
-      title: 'Ответ по верстке',
-      text: 'Привет! Я пример ответа!',
-    ]
-    localStorage.setItem('fl-offers', JSON.stringify(offersArray))
+#chekLocalStorage = ->
+#  typeLocalStorage = typeof localStorage.getItem('fl-offers')
+#  if typeLocalStorage isnt 'string'
+#    offersArray = [
+#      title: 'Ответ по программированию',
+#      text: 'Привет! Я пример ответа!',
+#    ,
+#      title: 'Ответ по дизайну',
+#      text: 'Привет! Я пример ответа!',
+#    ,
+#      title: 'Ответ по верстке',
+#      text: 'Привет! Я пример ответа!',
+#    ]
+#    localStorage.setItem('fl-offers', JSON.stringify(offersArray))
 
-
-todomvc = angular.module("todomvc", [])
-todomvc.controller "TodoCtrl", TodoCtrl = ($scope, $location, todoStorage) ->
-  chekLocalStorage()
+OffersApp = angular.module("OffersApp", [])
+OffersApp.controller "TodoCtrl", TodoCtrl = ($scope) ->
+  storage = chrome.storage.local
   temp = ''
-  todos = $scope.todos = todoStorage.get()
-  $scope.newOffersTitle = ""
-  $scope.newOffersText = ""
+  $scope.storageSet = ->
+    storage.set {"fl_offers" : JSON.stringify($scope.todos)}
+  $scope.newOffersTitle = ''
+  $scope.newOffersText = ''
+  storage.get "fl_offers", (data) ->
+    $scope.$apply ->
+      $scope.todos = JSON.parse(data.fl_offers)
+  console.log '1'
   $scope.addTodo = ->
     type = $('.modal').data('type')
-    console.log type
     newOffersTitle = $scope.newOffersTitle
     newOffersText = $scope.newOffersText
     if type == 'add'
-      todos.push
+      $scope.todos.push
         title: newOffersTitle.trim()
         text: newOffersText.trim()
     if type == 'edit'
-      temp.title = newOffersTitle.trim()
-      temp.text = newOffersText.trim()
-
-    todoStorage.put todos
+      temp.title = $scope.newOffersTitle.trim()
+      temp.text = $scope.newOffersTitle.trim()
+    $scope.storageSet()
     newOffersTitle = ""
     newOffersText = ""
 
@@ -44,5 +46,5 @@ todomvc.controller "TodoCtrl", TodoCtrl = ($scope, $location, todoStorage) ->
     temp = todo
 
   $scope.removeTodo = (todo) ->
-    todos.splice todos.indexOf(todo), 1
-    todoStorage.put todos
+    $scope.todos.splice $scope.todos.indexOf(todo), 1
+    $scope.storageSet()
