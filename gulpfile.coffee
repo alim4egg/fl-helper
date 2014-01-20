@@ -11,7 +11,7 @@ gulp.task 'coffee', ->
 
 gulp.task 'stylus', ->
   gulp
-    .src('src/options/*.styl')
+    .src(['src/options/*.styl', 'src/css/*.styl'])
     .pipe(stylus())
     .pipe gulp.dest('assets/css/')
 
@@ -20,5 +20,5 @@ gulp.task 'default', ->
   gulp.run 'stylus'
   gulp.watch ['src/js/*.coffee', 'src/bg/*.coffee', 'src/options/*.coffee'], ->
     gulp.run 'coffee'
-  gulp.watch ['src/options/*.styl'], ->
+  gulp.watch ['src/options/*.styl', 'src/css/*.styl'], ->
     gulp.run 'stylus'
