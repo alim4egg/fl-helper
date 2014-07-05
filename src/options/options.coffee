@@ -7,12 +7,12 @@ offers = ->
   modalForm = $('.modal-form')
   add.click ->
     modal.data('type', 'add')
-    modal.find('.modal-title').text('Добавить предложение')
+    modal.find('.modal-title').text('Добавить предложение1')
     modalName.val('')
     modalText.val('')
   edit.click ->
     modal.data('type', 'edit')
-    modal.find('.modal-title').text('Редактировать предложение')
+    modal.find('.modal-title').text('Редактировать предложение2')
   modalForm.submit ->
     modal.modal('hide')
 

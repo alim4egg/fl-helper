@@ -8,10 +8,10 @@
     "url": "https://github.com/AveVlad/fl-helper.git"
   },
   "devDependencies": {
-    "gulp": "~3.3.2",
-    "gulp-util": "~2.2.9",
-    "gulp-coffee": "~1.2.5",
-    "coffee-script": "~1.6.3",
-    "gulp-stylus": "0.0.9"
+    "coffee-script": "^1.7.1",
+    "gulp": "^3.8.5",
+    "gulp-coffee": "^2.0.1",
+    "gulp-stylus": "^1.0.2",
+    "gulp-util": "^2.2.19"
   }
 }

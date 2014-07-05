@@ -10,13 +10,13 @@ offers = function() {
   modalForm = $('.modal-form');
   add.click(function() {
     modal.data('type', 'add');
-    modal.find('.modal-title').text('Добавить предложение');
+    modal.find('.modal-title').text('Добавить предложение1');
     modalName.val('');
     return modalText.val('');
   });
   edit.click(function() {
     modal.data('type', 'edit');
-    return modal.find('.modal-title').text('Редактировать предложение');
+    return modal.find('.modal-title').text('Редактировать предложение2');
   });
   return modalForm.submit(function() {
     return modal.modal('hide');

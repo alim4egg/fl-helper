@@ -3,7 +3,7 @@ gutil = require('gulp-util')
 coffee = require('gulp-coffee')
 stylus = require('gulp-stylus')
 
-gulp.task 'coffee', ->
+gulp.task 'coffeeTask', ->
   gulp
     .src(['src/js/*.coffee', 'src/bg/*.coffee', 'src/options/*.coffee'])
     .pipe(coffee(bare: true).on('error', gutil.log))
@@ -16,9 +16,8 @@ gulp.task 'stylus', ->
     .pipe gulp.dest('assets/css/')
 
 gulp.task 'default', ->
-  gulp.run 'coffee'
-  gulp.run 'stylus'
+  gulp.start "coffeeTask", "stylus"
   gulp.watch ['src/js/*.coffee', 'src/bg/*.coffee', 'src/options/*.coffee'], ->
-    gulp.run 'coffee'
+    gulp.run 'coffeeTask'
   gulp.watch ['src/options/*.styl', 'src/css/*.styl'], ->
     gulp.run 'stylus'
