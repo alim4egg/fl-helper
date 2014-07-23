@@ -17,7 +17,7 @@ fl-helper
 ##Для разработчиков:
 
  1. Убедитесь в том, что вы установили <a href="http://nodejs.org/" target="_blank">Node.js</a>.
- 2. Установите <a href="http://coffeescript.org/" target="_blank">CoffeeScript</a> и <a href="https://github.com/gulpjs/gulp" target="_blank">Gulp</a>.
+ 2. Установите <a href="http://coffeescript.org/" target="_blank">CoffeeScript</a>, <a href="https://github.com/gulpjs/gulp" target="_blank">Gulp</a> и <a href="http://bower.io/" target="_blank">Bower</a>.
 
         npm install -g coffee-script
         npm install -g gulp
