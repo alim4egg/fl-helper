@@ -21,6 +21,7 @@ fl-helper
 
         npm install -g coffee-script
         npm install -g gulp
+        npm install -g bower
         
  3. Клонируйте git репозиторий или [скачайте zip архив](https://github.com/AveVlad/fl-helper/archive/master.zip).
 
@@ -30,7 +31,11 @@ fl-helper
 
         cd fl-helper
         npm install
+        
+ 5. Усатновите зависимости Bower.
 
- 5. Запустите Gulp.
+        bower install
+        
+ 6. Запустите Gulp.
 
         gulp --require coffee-script/register
