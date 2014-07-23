@@ -24,7 +24,7 @@ fl-helper
         
  3. Клонируйте git репозиторий или [скачайте zip архив](https://github.com/AveVlad/fl-helper/archive/master.zip).
 
-        git clone https://github.com/AveVlad/fl-helper.git
+        git clone git@github.com:AveVlad/fl-helper.git
 
  4. Запустите **npm** для установки зависимостей.
 
