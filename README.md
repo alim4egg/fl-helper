@@ -33,4 +33,4 @@ fl-helper
 
  5. Запустите Gulp.
 
-        gulp
+        gulp --require coffee-script/register
